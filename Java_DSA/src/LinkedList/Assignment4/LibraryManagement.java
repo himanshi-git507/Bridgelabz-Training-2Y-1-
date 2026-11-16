@@ -1,4 +1,4 @@
 package LinkedList.Assignment4;
 
-public class LibraryManageemnt {
+public class LibraryManagement {
 }

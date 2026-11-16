@@ -3,15 +3,15 @@ package LinkedList.Assignment4;
 
 import java.util.Scanner;
 
-class MovieManagement {
+class movieManagement {
     String title;
     String director;
     int year;
     double rating;
-    MovieManagement prev;
-    Moviemanagement next;
+    movieManagement prev;
+    movieManagement next;
 
-    Movie(String title, String director, int year, double rating) {
+    movieManagement(String title, String director, int year, double rating) {
         this.title = title;
         this.director = director;
         this.year = year;
@@ -21,13 +21,13 @@ class MovieManagement {
     }
 }
 
-public class Main {
+class Main {
 
-    static Movie head = null;
-    static Movie tail = null;
+    static movieManagement head = null;
+    static movieManagement tail = null;
     static Scanner sc = new Scanner(System.in);
 
-    static Movie createMovie() {
+    static movieManagement createMovie() {
         sc.nextLine();
 
         System.out.print("Enter Movie Title: ");
@@ -42,11 +42,11 @@ public class Main {
         System.out.print("Enter Rating: ");
         double rating = sc.nextDouble();
 
-        return new Movie(title, director, year, rating);
+        return new movieManagement(title, director, year, rating);
     }
 
     static void addAtBeginning() {
-        Movie newNode = createMovie();
+        movieManagement newNode = createMovie();
 
         if (head == null) {
             head = tail = newNode;
@@ -60,7 +60,7 @@ public class Main {
     }
 
     static void addAtEnd() {
-        Movie newNode = createMovie();
+        movieManagement newNode = createMovie();
 
         if (head == null) {
             head = tail = newNode;
@@ -87,7 +87,7 @@ public class Main {
             return;
         }
 
-        Movie temp = head;
+        movieManagement temp = head;
 
         for (int i = 1; i < pos - 1 && temp != null; i++) {
             temp = temp.next;
@@ -103,7 +103,7 @@ public class Main {
             return;
         }
 
-        Movie newNode = createMovie();
+        movieManagement newNode = createMovie();
 
         newNode.next = temp.next;
         newNode.prev = temp;
@@ -119,7 +119,7 @@ public class Main {
         System.out.print("Enter Movie Title to remove: ");
         String title = sc.nextLine();
 
-        Movie temp = head;
+        movieManagement temp = head;
 
         while (temp != null && !temp.title.equalsIgnoreCase(title)) {
             temp = temp.next;
@@ -151,7 +151,7 @@ public class Main {
         System.out.print("Enter Director Name: ");
         String director = sc.nextLine();
 
-        Movie temp = head;
+        movieManagement temp = head;
         boolean found = false;
 
         while (temp != null) {
@@ -171,7 +171,7 @@ public class Main {
         System.out.print("Enter Rating: ");
         double rating = sc.nextDouble();
 
-        Movie temp = head;
+        movieManagement temp = head;
         boolean found = false;
 
         while (temp != null) {
@@ -187,7 +187,7 @@ public class Main {
         }
     }
 
-    static void displayMovie(Movie temp) {
+    static void displayMovie(movieManagement temp) {
         System.out.println("-------------------------");
         System.out.println("Title: " + temp.title);
         System.out.println("Director: " + temp.director);
@@ -201,7 +201,7 @@ public class Main {
             return;
         }
 
-        Movie temp = head;
+        movieManagement temp = head;
 
         while (temp != null) {
             displayMovie(temp);
@@ -215,7 +215,7 @@ public class Main {
             return;
         }
 
-        Movie temp = tail;
+        movieManagement temp = tail;
 
         while (temp != null) {
             displayMovie(temp);
@@ -229,7 +229,7 @@ public class Main {
         System.out.print("Enter Movie Title: ");
         String title = sc.nextLine();
 
-        Movie temp = head;
+        movieManagement temp = head;
 
         while (temp != null) {
             if (temp.title.equalsIgnoreCase(title)) {
